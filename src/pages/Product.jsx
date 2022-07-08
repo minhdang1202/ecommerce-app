@@ -1,10 +1,12 @@
 import { Add, Remove } from "@material-ui/icons";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
+import { popularProducts } from "../data";
 
 const Container = styled.div``;
 
@@ -111,13 +113,16 @@ const Product = () => {
     setQuantity(quantity + 1);
   };
 
+  const id = useLocation().pathname.split("/")[2];
+  const thisProduct = popularProducts[id];
+
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://media.hasaki.vn/catalog/product/t/o/top_fb_ads_345800003_040422-1651201211_img_380x380_64adc6_fit_center.jpg" />
+          <Image src={thisProduct.img} />
         </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>

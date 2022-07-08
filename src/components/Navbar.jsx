@@ -1,6 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -71,13 +72,19 @@ const Navbar = () => {
           <Logo>MiDa.</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem>
-            <Badge color="secondary" badgeContent={5}>
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
+          <Link to="/register">
+            <MenuItem>REGISTER</MenuItem>
+          </Link>
+          <Link to="/login">
+            <MenuItem>SIGN IN</MenuItem>
+          </Link>
+          <Link to="/cart">
+            <MenuItem>
+              <Badge color="secondary" badgeContent={5}>
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
